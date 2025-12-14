@@ -1,0 +1,28 @@
+# Build outputs
+build/
+*.bin
+*.elf
+*.map
+*.lst
+*.log
+
+# IDF/ADF generated config
+sdkconfig
+sdkconfig.old
+sdkconfig.*.old
+config/
+
+# ESP-IDF Python/venv caches
+__pycache__/
+*.pyc
+.venv/
+
+# Managed components (idf.py add-dependency)
+managed_components/
+
+# Editor/OS noise
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
