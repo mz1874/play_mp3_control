@@ -8,3 +8,6 @@ cmake_minimum_required(VERSION 3.5)
 include($ENV{ADF_PATH}/CMakeLists.txt)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(play_mp3_control)
+
+# Build SPIFFS image from spiffs/ directory and flash into the "spiffs" partition
+spiffs_create_partition_image(spiffs ${CMAKE_CURRENT_LIST_DIR}/spiffs FLASH_IN_PROJECT)
