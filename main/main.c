@@ -53,6 +53,19 @@ void app_main(void)
     };
     ESP_ERROR_CHECK(esp_vfs_spiffs_register(&spiffs_conf));
 
+    // 打印 SPIFFS 分区信息
+    size_t total = 0, used = 0;
+    esp_err_t ret = esp_spiffs_info(spiffs_conf.partition_label, &total, &used);
+    if (ret == ESP_OK)
+    {
+        ESP_LOGI(TAG, "SPIFFS: total=%zu KB, used=%zu KB, free=%zu KB",
+                 total / 1024, used / 1024, (total - used) / 1024);
+    }
+    else
+    {
+        ESP_LOGW(TAG, "Failed to get SPIFFS info");
+    }
+
     ESP_LOGI(TAG, "[ 2 ] Create audio pipeline, add all elements to pipeline");
     audio_pipeline_cfg_t pipeline_cfg = DEFAULT_AUDIO_PIPELINE_CONFIG();
     pipeline = audio_pipeline_init(&pipeline_cfg);
