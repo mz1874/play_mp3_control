@@ -9,4 +9,5 @@ COMPONENT_SRCDIRS += ./my_codec_driver
 
 COMPONENT_ADD_INCLUDEDIRS += ./my_board_v1_0
 COMPONENT_SRCDIRS += ./my_board_v1_0
+
 endif
